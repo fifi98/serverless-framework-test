@@ -3,7 +3,12 @@ import dynamoose from "dynamoose";
 const schema = new dynamoose.Schema({
   id: String,
   name: String,
-  author: String,
+  author: {
+    type: Object,
+    schema: {
+      name: String,
+    },
+  },
   pages: Number,
 });
 
