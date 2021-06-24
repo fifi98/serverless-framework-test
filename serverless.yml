@@ -12,8 +12,27 @@ plugins:
 
 functions:
   hello:
-    handler: src/handler.hello
+    handler: src/handler.graphqlHandler
     events:
       - http:
-          path: /
+          path: graphql
+          method: post
+          cors: true
+      - http:
+          path: graphql
           method: get
+          cors: true
+
+resources:
+  Resources:
+    booksTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: books
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
