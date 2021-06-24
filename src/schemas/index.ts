@@ -1,3 +1,4 @@
 import bookSchema from "./book";
+import authorSchema from "./author";
 
-export default [bookSchema];
+export default [bookSchema, authorSchema];
