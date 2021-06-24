@@ -1,13 +1,14 @@
-export const hello = async (event: any) => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify(
-      {
-        message: "Go Serverless v2.0! Your function executed successfully!",
-        input: event,
-      },
-      null,
-      2
-    ),
-  };
-};
+import { ApolloServer } from "apollo-server-lambda";
+
+import resolvers from "./resolvers";
+import typeDefs from "./schemas";
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  playground: {
+    endpoint: "/dev/graphql",
+  },
+});
+
+export const graphqlHandler = server.createHandler();
