@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "apollo-server-lambda": "^2.25.2",
+    "dynamoose": "^2.7.3",
     "graphql": "^15.5.1"
   }
 }
