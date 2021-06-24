@@ -1,0 +1,17 @@
+{
+  "name": "graphql-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/fifi98/serverless-framework-test.git",
+  "author": "fifi98 <filip.bel@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-offline": "^7.0.0",
+    "serverless-plugin-typescript": "^1.1.9",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "apollo-server-lambda": "^2.25.2",
+    "graphql": "^15.5.1"
+  }
+}
