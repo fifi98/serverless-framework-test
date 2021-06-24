@@ -1,14 +1,15 @@
+import { nanoid } from "nanoid";
+
+import Book from "../models/book";
+
 const resolvers = {
   Query: {
-    getAllBooks: (parent, args, context, info) => {
-      return [
-        {
-          id: "123",
-          name: "Book name",
-          author: "John Smith",
-          pages: 123,
-        },
-      ];
+    getAllBooks: async () => await (await Book.scan().exec()).populate(),
+  },
+  Mutation: {
+    addBook: async (parent, args, context, info) => {
+      const book = new Book({ id: nanoid(), name: args.name, pages: args.pages, author: { name: args.author } });
+      return await book.save();
     },
   },
 };
