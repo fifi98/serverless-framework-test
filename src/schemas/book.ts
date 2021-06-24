@@ -4,12 +4,16 @@ const typeDefs = gql`
   type Book {
     id: String
     name: String
-    author: String
+    author: Author!
     pages: Int
   }
 
   type Query {
     getAllBooks: [Book!]!
+  }
+
+  type Mutation {
+    addBook(name: String!): Book!
   }
 `;
 
